@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Inscription')}"></head>
+<body>
+<div class="login-wrapper">
+    <div class="login-boite">
+        <h2>Creer un compte</h2>
+        <p class="sous-titre">Le mot de passe est hache en BCrypt avant insertion en base</p>
+
+        <div class="alerte alerte-erreur" th:if="${erreur}" th:text="${erreur}">
+            Erreur de saisie
+        </div>
+
+        <form th:action="@{/register}" method="post">
+            <div class="champ">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required autofocus>
+            </div>
+            <div class="champ">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="champ">
+                <label for="confirmation">Confirmation</label>
+                <input type="password" id="confirmation" name="confirmation" required>
+            </div>
+            <button type="submit" class="bouton">S'inscrire</button>
+        </form>
+
+        <p style="text-align:center;margin-top:18px;font-size:13px;color:var(--texte-doux)">
+            Deja inscrit ? <a th:href="@{/login}">Retour a la connexion</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>

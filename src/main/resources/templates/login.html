@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Connexion')}"></head>
+<body>
+<div class="login-wrapper">
+    <div class="login-boite">
+        <h2>Authentification</h2>
+        <p class="sous-titre">Utilisateurs et roles stockes en base MySQL</p>
+
+        <div class="alerte alerte-erreur" th:if="${param.error}">
+            Identifiants incorrects ou compte desactive, veuillez reessayer.
+        </div>
+        <div class="alerte alerte-succes" th:if="${param.logout}">
+            Vous etes deconnecte avec succes.
+        </div>
+        <div class="alerte alerte-succes" th:if="${cree}">
+            Compte cree pour <strong th:text="${cree}">invite</strong> : vous pouvez vous connecter.
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <div class="champ">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username"
+                       placeholder="user ou admin" required autofocus>
+            </div>
+            <div class="champ">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password"
+                       placeholder="Mot de passe" required>
+            </div>
+            <button type="submit" class="bouton">Se connecter</button>
+        </form>
+
+        <p style="text-align:center;margin-top:18px;font-size:13px;color:var(--texte-doux)">
+            Pas encore de compte ? <a th:href="@{/register}">Creer un compte</a>
+        </p>
+        <p style="text-align:center;font-size:13px;color:var(--texte-doux)">
+            Comptes de demonstration : <code>user / 1111</code> &middot; <code>admin / 1234</code>
+        </p>
+    </div>
+</div>
+</body>
+</html>

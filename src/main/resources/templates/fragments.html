@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head(titre)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${titre} + ' - Application securisee JPA'">Application securisee JPA</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header class="entete" th:fragment="barre">
+    <span class="marque">MLIAEdu &middot; TP 11 &mdash; Authentification JPA</span>
+    <nav>
+        <a th:href="@{/home}">Accueil</a>
+        <a th:href="@{/user/dashboard}">Espace utilisateur</a>
+        <a th:href="@{/admin/dashboard}">Espace admin</a>
+        <span sec:authorize="isAuthenticated()" sec:authentication="name">utilisateur</span>
+        <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+            <button type="submit" class="bouton-discret">Deconnexion</button>
+        </form>
+    </nav>
+</header>
+
+</body>
+</html>

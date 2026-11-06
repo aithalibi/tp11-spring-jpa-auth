@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments :: head('Espace utilisateur')}"></head>
+<body>
+<header th:replace="~{fragments :: barre}"></header>
+
+<main class="conteneur">
+    <div class="carte">
+        <span class="badge badge-user">Espace partage</span>
+        <h1 style="margin-top:14px">Espace Utilisateur</h1>
+        <p class="intro">
+            Accessible aux roles <code>USER</code> et <code>ADMIN</code> grace a
+            <code>requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")</code>.
+        </p>
+        <table class="comptes">
+            <thead><tr><th>Information</th><th>Valeur</th></tr></thead>
+            <tbody>
+            <tr><td>Utilisateur connecte</td><td th:text="${utilisateur}">user</td></tr>
+            <tr><td>Autorites</td><td th:text="${autorites}">[ROLE_USER]</td></tr>
+            <tr><td>Table source</td><td><code>user</code> + <code>user_roles</code> + <code>role</code></td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top:22px"><a th:href="@{/home}">Retour a l'accueil</a></p>
+    </div>
+    <p class="pied">TP 11 &mdash; Authentification JDBC / JPA avec Spring Security</p>
+</main>
+</body>
+</html>

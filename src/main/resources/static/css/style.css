@@ -1,0 +1,271 @@
+/* Application securisee - TP 9 Spring Security */
+:root {
+    --primaire: #2b5797;
+    --primaire-fonce: #1e3f6f;
+    --succes: #1b7c3d;
+    --danger: #b02318;
+    --texte: #22262b;
+    --texte-doux: #5b6472;
+    --fond: #f2f4f7;
+    --carte: #ffffff;
+    --bordure: #dde2e9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    line-height: 1.55;
+}
+
+.entete {
+    background: var(--primaire);
+    color: #fff;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.entete .marque {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.entete nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+}
+
+.entete nav form {
+    margin: 0;
+}
+
+.entete nav a,
+.entete form button {
+    color: #dce6f7;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0;
+}
+
+.entete nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.conteneur {
+    max-width: 760px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+}
+
+.carte {
+    background: var(--carte);
+    border: 1px solid var(--bordure);
+    border-radius: 10px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 10px rgba(21, 33, 51, 0.06);
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+p.intro {
+    color: var(--texte-doux);
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.badge-user {
+    background: #e4efff;
+    color: #1f4b8f;
+}
+
+.badge-admin {
+    background: #ffe8e2;
+    color: #9c2b16;
+}
+
+.liste-liens {
+    list-style: none;
+    padding: 0;
+    margin: 22px 0 0;
+}
+
+.liste-liens li {
+    margin-bottom: 10px;
+}
+
+.bouton,
+.liste-liens a {
+    display: inline-block;
+    background: var(--primaire);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.bouton:hover,
+.liste-liens a:hover {
+    background: var(--primaire-fonce);
+}
+
+.bouton-discret {
+    background: transparent;
+    border: 1px solid #b8c4d6;
+    color: var(--primaire);
+}
+
+.bouton-discret:hover {
+    background: #eef2f9;
+}
+
+/* Formulaire de connexion */
+
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.login-boite {
+    background: var(--carte);
+    border: 1px solid var(--bordure);
+    border-radius: 10px;
+    padding: 32px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 6px 24px rgba(21, 33, 51, 0.1);
+}
+
+.login-boite h2 {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.login-boite .sous-titre {
+    text-align: center;
+    color: var(--texte-doux);
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.champ {
+    margin-bottom: 16px;
+}
+
+.champ label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.champ input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--bordure);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.champ input:focus {
+    outline: 2px solid #9db8e0;
+    border-color: var(--primaire);
+}
+
+.login-boite .bouton {
+    width: 100%;
+    margin-top: 6px;
+}
+
+.alerte {
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.alerte-erreur {
+    background: #fdecea;
+    border: 1px solid #f5c2bd;
+    color: var(--danger);
+}
+
+.alerte-succes {
+    background: #e7f6ec;
+    border: 1px solid #b7e0c5;
+    color: var(--succes);
+}
+
+.alerte-info {
+    background: #eef2f9;
+    border: 1px solid #cfdcef;
+    color: #274b7d;
+}
+
+table.comptes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+table.comptes th,
+table.comptes td {
+    text-align: left;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--bordure);
+}
+
+table.comptes th {
+    color: var(--texte-doux);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+code {
+    background: #eef2f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.pied {
+    text-align: center;
+    color: var(--texte-doux);
+    font-size: 12px;
+    padding: 0 20px 30px;
+}
